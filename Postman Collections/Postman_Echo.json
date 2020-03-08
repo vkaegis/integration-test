@@ -10,7 +10,7 @@
       "name": "Request Methods",
       "item": [
         {
-          "name": "GET Request",
+          "name": "GET Request Renamed",
           "event": [
             {
               "listen": "test",
