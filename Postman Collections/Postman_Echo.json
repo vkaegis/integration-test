@@ -96,6 +96,46 @@
           "response": []
         },
         {
+          "name": "POST Raw Text Copy",
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "type": "text/javascript",
+                "exec": [
+                  "pm.test(\"response is ok\", function () {",
+                  "    pm.response.to.have.status(200);",
+                  "});",
+                  "",
+                  "pm.test(\"response body has json with request body\", function () {",
+                  "    pm.response.to.have.jsonBody('data', ",
+                  "        'This is expected to be sent back as part of response body.');",
+                  "});"
+                ],
+                "id": "ee9dddae-a7bf-4f94-92b9-16d34ae280fc"
+              }
+            }
+          ],
+          "_postman_id": "de1c7162-f052-431a-a7bc-f030801497a2",
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          },
+          "request": {
+            "method": "POST",
+            "header": [],
+            "body": {
+              "mode": "raw",
+              "raw": "This is expected to be sent back as part of response body.",
+              "options": {
+                "raw": {}
+              }
+            },
+            "url": "https://postman-echo.com/post",
+            "description": "The HTTP `POST` request method is meant to transfer data to a server \n(and elicit a response). What data is returned depends on the implementation\nof the server.\n\nA `POST` request can pass parameters to the server using \"Query String \nParameters\", as well as the Request Body. For example, in the following request,\n\n> POST /hi/there?hand=wave\n>\n> <request-body>\n\nThe parameter \"hand\" has the value \"wave\". The request body can be in multiple\nformats. These formats are defined by the MIME type of the request. The MIME \nType can be set using the ``Content-Type`` HTTP header. The most commonly used \nMIME types are:\n\n* `multipart/form-data`\n* `application/x-www-form-urlencoded`\n* `application/json`\n\nThis endpoint echoes the HTTP headers, request parameters, the contents of\nthe request body and the complete URI requested."
+          },
+          "response": []
+        },
+        {
           "name": "POST Form Data",
           "event": [
             {
@@ -235,46 +275,6 @@
             },
             "url": "https://postman-echo.com/delete",
             "description": "The HTTP `DELETE` method is used to delete resources on a server. The exact\nuse of `DELETE` requests depends on the server implementation. In general, \n`DELETE` requests support both, Query String parameters as well as a Request \nBody.\n\nThis endpoint accepts an HTTP `DELETE` request and provides debug information\nsuch as the HTTP headers, Query String arguments, and the Request Body."
-          },
-          "response": []
-        },
-        {
-          "name": "POST Raw Text Copy",
-          "event": [
-            {
-              "listen": "test",
-              "script": {
-                "type": "text/javascript",
-                "exec": [
-                  "pm.test(\"response is ok\", function () {",
-                  "    pm.response.to.have.status(200);",
-                  "});",
-                  "",
-                  "pm.test(\"response body has json with request body\", function () {",
-                  "    pm.response.to.have.jsonBody('data', ",
-                  "        'This is expected to be sent back as part of response body.');",
-                  "});"
-                ],
-                "id": "ee9dddae-a7bf-4f94-92b9-16d34ae280fc"
-              }
-            }
-          ],
-          "_postman_id": "de1c7162-f052-431a-a7bc-f030801497a2",
-          "protocolProfileBehavior": {
-            "disableBodyPruning": true
-          },
-          "request": {
-            "method": "POST",
-            "header": [],
-            "body": {
-              "mode": "raw",
-              "raw": "This is expected to be sent back as part of response body.",
-              "options": {
-                "raw": {}
-              }
-            },
-            "url": "https://postman-echo.com/post",
-            "description": "The HTTP `POST` request method is meant to transfer data to a server \n(and elicit a response). What data is returned depends on the implementation\nof the server.\n\nA `POST` request can pass parameters to the server using \"Query String \nParameters\", as well as the Request Body. For example, in the following request,\n\n> POST /hi/there?hand=wave\n>\n> <request-body>\n\nThe parameter \"hand\" has the value \"wave\". The request body can be in multiple\nformats. These formats are defined by the MIME type of the request. The MIME \nType can be set using the ``Content-Type`` HTTP header. The most commonly used \nMIME types are:\n\n* `multipart/form-data`\n* `application/x-www-form-urlencoded`\n* `application/json`\n\nThis endpoint echoes the HTTP headers, request parameters, the contents of\nthe request body and the complete URI requested."
           },
           "response": []
         }
